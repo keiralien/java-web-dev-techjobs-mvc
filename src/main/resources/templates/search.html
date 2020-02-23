@@ -15,7 +15,13 @@
 
         <p>
             <span th:each="column : ${columns}">
-                <input
+                 <input th:if="${search == ''}"
+                         type="radio"
+                         name="searchType"
+                         th:id="${column.key}"
+                         th:value="${column.key}"
+                         th:checked="${column.key == 'all'}"/>
+                <input th:if="${search != ''}"
                         type="radio"
                         name="searchType"
                         th:id="${column.key}"
@@ -32,11 +38,10 @@
         <input type="submit" value="Search" />
     </form>
 
-    <div th:replace="fragments :: search-list"></div>
 
     <hr />
 
-    <!-- TODO #4 - Loop over the search results to display all job fields. -->
+    <div th:replace="fragments :: search-list"></div>
 
 </div>
 
