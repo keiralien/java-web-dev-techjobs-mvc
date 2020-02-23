@@ -30,10 +30,6 @@ public class Job {
     }
 
     //Methods
-    public static void resetIdCounter() {
-        nextId = 1;
-    }
-
     private boolean isNotEmpty(String stringIn) {
         return stringIn != null && !stringIn.isEmpty();
     }
