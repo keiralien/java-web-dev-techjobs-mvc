@@ -31,10 +31,15 @@ table.job-listing {
 
 table.job-listing td:first-child {
     font-weight: bold;
+    font-family: courier;
+    font-size: 120%;
+    color: lightslategray;
 }
 
 table.job-listing td:last-child {
     width: 80%;
+    font-style: italic;
+    font-size: 110%;
 }
 
 label {
