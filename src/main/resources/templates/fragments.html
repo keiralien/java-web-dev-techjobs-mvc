@@ -40,23 +40,33 @@
             </tr>
             <tr>
                 <td>Employer:</td>
-                <td th:text="${value.employer}"></td>
+                <td>
+                    <a th:href="@{/list/jobs(column='employer',value=${value.employer})}" th:text="${value.employer}"></a>
+                </td>
             </tr>
             <tr>
                 <td>Location:</td>
-                <td th:text="${value.location}"></td>
+                <td>
+                    <a th:href="@{/list/jobs(column='location',value=${value.location})}" th:text="${value.location}"></a>
+                </td>
             </tr>
             <tr>
                 <td>Position Type:</td>
-                <td th:text="${value.positionType}"></td>
+                <td>
+                    <a th:href="@{/list/jobs(column='positionType',value=${value.positionType})}" th:text="${value.positionType}"></a>
+                </td>
             </tr>
             <tr>
                 <td>Skill:</td>
-                <td th:text="${value.coreCompetency}"></td>
+                <td>
+                    <a th:href="@{/list/jobs(column='coreCompetency',value=${value.coreCompetency})}" th:text="${value.coreCompetency}"></a>
+                </td>
             </tr>
         </table>
     </div>
 
+    <li th:each="item : ${category.value}">
+        <a th:href="@{/list/jobs(column=${category.key},value=${item})}" th:text="${item}"></a>
 
 </body>
 </html>
