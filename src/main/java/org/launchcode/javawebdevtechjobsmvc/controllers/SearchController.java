@@ -17,16 +17,16 @@ import static org.launchcode.javawebdevtechjobsmvc.controllers.ListController.co
  */
 @Controller
 @RequestMapping("search")
-public class SearchController {
+public class SearchController extends TechJobsController{
 
     @RequestMapping(value = "")
     public String search(Model model) {
-        model.addAttribute("columns", columnChoices);
         model.addAttribute("search", "");
+        model.addAttribute(getActionChoices());
+        model.addAttribute(getColumnChoices());
         return "search";
     }
 
-    // TODO #3 - Create a handler to process a search request and render the updated search view.
     @PostMapping("results")
     public String displaySearchResults(Model model, @RequestParam String searchType, @RequestParam String searchTerm) {
         List<Job> jobs;
@@ -37,7 +37,8 @@ public class SearchController {
         }
         model.addAttribute("search", searchType);
         model.addAttribute("jobs", jobs);
-        model.addAttribute("columns", columnChoices);
+        model.addAttribute(getActionChoices());
+        model.addAttribute(getColumnChoices());
         return "search";
     }
 }
